@@ -22,6 +22,7 @@ export async function getServerSideProps({ params }) {
 }
 
 export default function Post(props: PostProps) {
+  
   let title = props.title
   if (!props.published) {
     title = `${title} (Draft)`

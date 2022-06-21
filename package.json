@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "next",
+    "docker": "docker-compose up -d",
     "build": "next build",
     "start": "next start"
   },

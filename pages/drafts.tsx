@@ -34,7 +34,7 @@ type Props = {
   drafts: PostProps[];
 };
 
-const Drafts: React.FC<Props> = (props) => {
+export default function Drafts(props: Props) {
   const { data: session } = useSession();
 
   if (!session) {
@@ -75,5 +75,3 @@ const Drafts: React.FC<Props> = (props) => {
     </Layout>
   );
 };
-
-export default Drafts;

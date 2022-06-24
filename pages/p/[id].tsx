@@ -32,6 +32,13 @@ async function publishPost(id: string): Promise<void> {
   await Router.push('/');
 }
 
+async function deletePost(id: string): Promise<void> {
+  await fetch(`/api/post/${id}`, {
+    method: 'DELETE',
+  });
+  Router.push('/');
+}
+
 export default function Post(props: PostProps) {
   const { data: session, status } = useSession();
   if (status === 'loading') {
@@ -53,6 +60,10 @@ export default function Post(props: PostProps) {
         {!props.published && userHasValidSession && postBelongsToUser && (
           <button onClick={() => publishPost(props.id)}>Publish</button>
         )}
+        {userHasValidSession && postBelongsToUser && (
+          <button onClick={() => deletePost(props.id)}>Delete</button>
+        )}
+
       </div>
       <style jsx>{`
         .page {
